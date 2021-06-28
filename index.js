@@ -1,13 +1,29 @@
-var twoSum = function(nums, target) {
-    let result = [];
+//my solution
+// var twoSum = function(nums, target) {
+//     let result = [];
   
-  for(let i=0; i<nums.length; i++){
+//   for(let i=0; i<nums.length; i++){
    
-    if(nums.indexOf(target-nums[i])!==i &&nums.indexOf(target-nums[i])!==-1){
-      result.push(i, nums.indexOf(target-nums[i]));
+//     if(nums.indexOf(target-nums[i])!==i &&nums.indexOf(target-nums[i])!==-1){
+//       result.push(i, nums.indexOf(target-nums[i]));
+//     }
+//   }
+//   return result.slice(0, 2).sort((a, b)=> a-b);
+// };
+
+//best practice
+function twoSum(nums, target) {
+  let vals = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    if (target - nums[i] in vals) {
+      return [vals[target-nums[i]], i];
+    } else {
+      vals[nums[i]] = i;
+      console.log(vals)
     }
   }
-  return result.slice(0, 2).sort((a, b)=> a-b);
+  return [];
 };
 
 
